@@ -3,7 +3,12 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
+import usePost from './routers/posts.js'
+
 const app = express()
+
+app.use('/posts', usePost)
+
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
@@ -19,8 +24,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log('server running on PORT :' + PORT))
+    app.listen(PORT, () => console.log('server running on PORT : ' + PORT))
   })
   .catch((error) => {
     console.log(error)
   })
+
+mongoose.set('useFindAndModify', false)
