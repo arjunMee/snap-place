@@ -1,14 +1,11 @@
-import * as api from '../api'
+import * as api from '../api/index.js'
 
-// api.fetchPost
-
-// action creater
 export const getPost = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts()
-    dispatch({ type: 'FATCH_ALL', payload: data })
+
+    dispatch({ type: ' FETCH_ALL', payload: data })
   } catch (error) {
     console.log(error.message)
   }
-  // const action = { type: 'FATCH_ALL', payload: [] }
 }
