@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
 
+import { getPost } from './actions/posts.js'
 import Posts from './components/Posts/Posts.js'
 import Form from './components/Form/Form.js'
 import place from './images/eiffel-tower.jpg'
 import useStyles from './styles.js'
 const App = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getPost())
+  }, [dispatch])
+
   return (
     <Container maxidth='lg'>
-      <AppBar className='{classes.appBar}' position='static' color='inherit'>
+      <AppBar className={classes.appBar} position='static' color='inherit'>
         <Typography varaint='h2' align='center'>
           Snap Place
         </Typography>
-        <img className='{classes.image}' src={place} alt='place' height='60' />
+        <img className={classes.image} src={place} alt='place' height='60' />
       </AppBar>
       <Grow in>
         <Container>
