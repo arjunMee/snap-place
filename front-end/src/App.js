@@ -11,6 +11,7 @@ const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
+  //dispatch is from redux 
   useEffect(() => {
     dispatch(getPost())
   }, [dispatch])
