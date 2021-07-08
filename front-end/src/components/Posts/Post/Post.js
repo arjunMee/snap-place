@@ -3,7 +3,7 @@ import useStyles from './styles.js'
 
 const Post = () => {
   const classes = useStyles()
-  return <h1>FORM</h1>
+  return <h1>... post inner </h1>
 }
 
 export default Post

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import Post from './Post/Post.js'
 import useStyles from './styles.js'
 
-const Form = () => {
+const Posts = () => {
   const posts = useSelector((state) => state.posts)
   const classes = useStyles()
 
@@ -18,4 +18,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default Posts

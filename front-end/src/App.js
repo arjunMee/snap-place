@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux'
 import { getPost } from './actions/posts.js'
 import Posts from './components/Posts/Posts.js'
 import Form from './components/Form/Form.js'
-import place from './images/eiffel-tower.jpg'
+import placeIcon from './images/eiffel-tower.jpg'
 import useStyles from './styles.js'
+
 const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
@@ -21,8 +22,15 @@ const App = () => {
         <Typography varaint='h2' align='center'>
           Snap Place
         </Typography>
-        <img className={classes.image} src={place} alt='place' height='60' />
+        <img
+          className={classes.image}
+          src={placeIcon}
+          alt='place'
+          height='60'
+        />
       </AppBar>
+
+      {/* grow have animation */}
       <Grow in>
         <Container>
           <Grid
