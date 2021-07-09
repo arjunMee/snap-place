@@ -114,9 +114,6 @@ const Form = ({ currentId, setCurrentId, visible }) => {
           size='large'
           type='submit'
           fullWidth
-          onClick={() => {
-            visible()
-          }}
         >
           Submit
         </Button>
@@ -128,6 +125,15 @@ const Form = ({ currentId, setCurrentId, visible }) => {
           fullWidth
         >
           Clear
+        </Button>
+        <Button
+          color='secondary'
+          size='small'
+          onClick={() => {
+            visible()
+          }}
+        >
+          Close
         </Button>
       </form>
     </Paper>

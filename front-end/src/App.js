@@ -21,7 +21,7 @@ const App = () => {
   return (
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography className={classes.heading} variant='h2' align='center'>
+        <Typography className={classes.heading} variant='h3' align='center'>
           Snap Place
         </Typography>
         <img className={classes.image} src={memories} alt='icon' height='60' />
@@ -35,7 +35,7 @@ const App = () => {
             alignItems='stretch'
             spacing={3}
           >
-            <Grid item lg={14} xs={12} sm={7}>
+            <Grid item>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
 
