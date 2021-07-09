@@ -10,9 +10,20 @@ export default makeStyles(() => ({
     alignItems: 'center',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: '#aa3333',
   },
   image: {
     marginLeft: '15px',
+  },
+  createButton: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonStyle: {
+    padding: '10px 40px',
+    fontSize: '18px',
+    color: '#aa3333',
   },
 }))

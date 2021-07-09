@@ -9,6 +9,7 @@ import useStyles from './styles'
 import memories from './images/memories.png'
 
 const App = () => {
+  const [visible, setVisible] = useState(false)
   const [currentId, setCurrentId] = useState(0)
   const dispatch = useDispatch()
   const classes = useStyles()
@@ -21,7 +22,7 @@ const App = () => {
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>
         <Typography className={classes.heading} variant='h2' align='center'>
-          Memories
+          Snap Place
         </Typography>
         <img className={classes.image} src={memories} alt='icon' height='60' />
       </AppBar>
@@ -29,16 +30,33 @@ const App = () => {
         <Container>
           <Grid
             container
+            direction='column-reverse'
             justify='space-between'
             alignItems='stretch'
             spacing={3}
           >
-            <Grid item xs={12} sm={7}>
+            <Grid item lg={14} xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
+
+            {visible ? (
+              <Grid item>
+                <Form
+                  currentId={currentId}
+                  setCurrentId={setCurrentId}
+                  visible={setVisible}
+                />
+              </Grid>
+            ) : (
+              <div className={classes.createButton}>
+                <button
+                  className={classes.buttonStyle}
+                  onClick={() => setVisible(true)}
+                >
+                  Create New Post
+                </button>
+              </div>
+            )}
           </Grid>
         </Container>
       </Grow>

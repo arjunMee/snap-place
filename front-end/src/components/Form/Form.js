@@ -6,7 +6,7 @@ import FileBase from 'react-file-base64'
 import useStyles from './styles'
 import { createPost, updatePost } from '../../actions/posts'
 
-const Form = ({ currentId, setCurrentId }) => {
+const Form = ({ currentId, setCurrentId, visible }) => {
   const [postData, setPostData] = useState({
     creator: '',
     title: '',
@@ -114,6 +114,9 @@ const Form = ({ currentId, setCurrentId }) => {
           size='large'
           type='submit'
           fullWidth
+          onClick={() => {
+            visible()
+          }}
         >
           Submit
         </Button>

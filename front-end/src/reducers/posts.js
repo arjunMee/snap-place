@@ -4,7 +4,7 @@ import {
   UPDATE,
   DELETE,
   LIKE,
-} from '../constants/actionTypes'
+} from '../constant/actionTypes'
 
 const reducer = (posts = [], action) => {
   switch (action.type) {

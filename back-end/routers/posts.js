@@ -1,14 +1,23 @@
 // 2
 import express from 'express'
 
-// controll routers
-import { getPosts, createPosts, updatePost } from '../controllers/posts.js'
+import {
+  getPosts,
+  getPost,
+  createPost,
+  updatePost,
+  likePost,
+  deletePost,
+} from '../controllers/posts.js'
 
 const router = express.Router()
 
 router.get('/', getPosts)
-router.get('/', createPosts)
+router.post('/', createPost)
+router.get('/:id', getPost)
 router.patch('/:id', updatePost)
+router.delete('/:id', deletePost)
+router.patch('/:id/likePost', likePost)
 
 export default router
 

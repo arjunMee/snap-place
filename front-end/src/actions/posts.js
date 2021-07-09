@@ -4,7 +4,7 @@ import {
   UPDATE,
   DELETE,
   LIKE,
-} from '../constants/actionTypes'
+} from '../constant/actionTypes'
 
 import * as api from '../api/index.js'
 
