@@ -9,7 +9,8 @@ import { createPost, updatePost } from '../../actions/posts'
 
 // const { createPost = true, updatePost = true } = {}
 
-const Form = () => {
+// get the current id
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: '',
     title: '',
@@ -17,14 +18,23 @@ const Form = () => {
     tags: '',
     selectedFile: '',
   })
-
   const classes = useStyles()
   const dispatch = useDispatch()
+  const posts = useSelector((state) =>
+    currentId ? state.posts.find((p) => p.id === currentID) : null
+  )
+
+  useEffect(() => {
+    if (post) setPostData(post)
+  }, [post])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    dispatch(createPost(postData))
+    if (currentId) {
+      dispatch(updatePost(currentId, postData))
+    } else {
+      dispatch(createPost(postData))
+    }
   }
 
   const clear = () => {}
