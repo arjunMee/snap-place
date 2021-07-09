@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
+// import { useDispatch } from 'react-redux'
 
 import useStyles from './styles'
-// import { createPost, updatePost } from '../../actions/posts'
-const { createPost = true, updatePost = true } = {}
+import { createPost, updatePost } from '../../actions/posts'
+
+// const { createPost = true, updatePost = true } = {}
+
 const Form = () => {
   const [postData, setPostData] = useState({
     creator: '',
@@ -16,8 +19,13 @@ const Form = () => {
   })
 
   const classes = useStyles()
+  const dispatch = useDispatch()
 
-  const handleSubmit = () => {}
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    dispatch(createPost(postData))
+  }
 
   const clear = () => {}
   return (

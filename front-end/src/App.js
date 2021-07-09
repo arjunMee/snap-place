@@ -3,16 +3,17 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
 import { getPost } from './actions/posts.js'
+
 import Posts from './components/Posts/Posts.js'
 import Form from './components/Form/Form.js'
 import placeIcon from './images/eiffel-tower.jpg'
+
 import useStyles from './styles.js'
 
 const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  //dispatch is from redux 
   useEffect(() => {
     dispatch(getPost())
   }, [dispatch])
